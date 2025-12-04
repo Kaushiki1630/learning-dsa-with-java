@@ -4,6 +4,14 @@ import java.util.Scanner;
 
 public class BinaryTree {
 
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        BinaryTree tree = new BinaryTree();
+        tree.inserting(scanner);
+        tree.displayTree();
+    }
+
     public BinaryTree(){
 
     }
@@ -41,7 +49,7 @@ public class BinaryTree {
             inserting(scanner, node.left);
         }
 
-        System.out.println("Do you want to enter left of " + node.value);
+        System.out.println("Do you want to enter right of " + node.value);
         boolean right = scanner.nextBoolean();
         if(right){
             System.out.println("Enter the value of the right of " + node.value);
@@ -51,6 +59,21 @@ public class BinaryTree {
         }
     }
 
-    
+    // displaying the tree formed
+
+    public void displayTree(){
+        displayTree(this.root, "");
+    }
+
+    public void displayTree(Node node, String indent){
+        if(node == null){
+            return;
+        }
+
+        System.out.println(indent + node.value);
+        displayTree(node.left, indent + "\t");
+        displayTree(node.right, indent + "\t");
+
+    }
 }
 
