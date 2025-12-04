@@ -6,7 +6,7 @@ public class BinaryTree {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-
+ 
         BinaryTree tree = new BinaryTree();
         tree.inserting(scanner);
         tree.displayTree();
@@ -15,7 +15,6 @@ public class BinaryTree {
     public BinaryTree(){
 
     }
-
 
     private static class Node{
         int value;
@@ -76,4 +75,3 @@ public class BinaryTree {
 
     }
 }
-
