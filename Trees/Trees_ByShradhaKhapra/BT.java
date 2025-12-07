@@ -20,6 +20,12 @@ public class BT{
         System.out.println("Level order traversal");
         tree.levelorderTraversal(root);
         System.out.println();
+        System.out.print("Height of the binary tree: ");
+        System.out.println(tree.height(root));
+        System.out.print("Number of nodes in the binary tree: ");
+        System.out.println(tree.countNodes(root));
+        System.out.print("Sum of Nodes: ");
+        System.out.println(tree.sumOfNodes(root));
     }
 
     public static class Node{
@@ -131,6 +137,45 @@ public class BT{
         }
     }
 
+    // ... HEIGHT OF THE BINARY TREE
 
+    public int height(Node node){
 
+        if(node== null){
+            return 0;
+        }
+
+        int leftheight = height(node.leftSubTree);
+        int rightheight = height(node.rightSubTree);
+
+        int finalHeight = Math.max(leftheight, rightheight) + 1;
+
+        return finalHeight;
+    }
+
+    // ... COUNTING NUMBER OF NODES
+
+    public int countNodes(Node node){
+        if(node == null){
+            return 0;
+        }
+
+        int leftCount = countNodes(node.leftSubTree);
+        int rightCount = countNodes(node.rightSubTree);
+
+        return (leftCount+rightCount+1);
+    }
+
+    // ... SUM OF NODES
+
+    public int sumOfNodes(Node node){
+        if(node == null){
+            return 0;
+        }
+
+        int leftsum = sumOfNodes(node.leftSubTree);
+        int rightsum = sumOfNodes(node.rightSubTree);
+
+        return (leftsum + rightsum + (node.data));
+    }
 }
